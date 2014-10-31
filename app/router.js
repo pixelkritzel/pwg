@@ -6,6 +6,8 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('pwg');
+  this.route('services');
 });
 
 export default Router;
