@@ -1,1 +1,14 @@
 {{outlet}}
+
+<h1>Services</h1>
+
+{{#link-to 'pwg'}}Zurück{{/link-to}}
+
+{{input value=newServiceName action="addNewService" on="enter"}}
+<ul>
+  {{#each itemController="service"}}
+    <li>
+      {{serviceName}} <button type="button" {{action deleteService}}>&times;</button>
+    </li>
+  {{/each}}
+</ul>

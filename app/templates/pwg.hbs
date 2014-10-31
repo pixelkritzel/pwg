@@ -1,1 +1,24 @@
 {{outlet}}
+
+{{#link-to 'services'}}Service Liste bearbeiten{{/link-to}}
+
+<ul>
+  {{#each}}
+    <button type="button" {{ action setSelectedService this.serviceName}}>{{ this.serviceName }}</button>
+  {{/each}}
+</ul>
+{{view "select"
+       content=this
+       value=selectedService
+       prompt="Please select a name"
+       optionLabelPath='content.serviceName'
+       optionValuePath='content.serviceName'
+}}
+
+{{ input value=selectedService}}
+
+{{ input value=salt action="generatePassword" on="enter"}}
+
+<h1>
+  {{ password }}
+</h1>
