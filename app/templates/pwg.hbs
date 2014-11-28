@@ -2,11 +2,6 @@
 
 {{#link-to 'services'}}Service Liste bearbeiten{{/link-to}}
 
-<ul>
-  {{#each}}
-    <button type="button" {{ action setSelectedService this.serviceName}}>{{ this.serviceName }}</button>
-  {{/each}}
-</ul>
 {{view "select"
        content=this
        value=selectedService
