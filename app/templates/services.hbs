@@ -19,7 +19,7 @@
   {{#each itemController="service"}}
     <li>
       {{serviceName}}
-      <button type="button" title="Delete Service" {{action deleteService}} class="services_delete-service btn">&times;</button>
+      <button type="button" title="Delete Service" {{action 'deleteService'}} class="services_delete-service btn">&times;</button>
     </li>
   {{/each}}
 </ul>
