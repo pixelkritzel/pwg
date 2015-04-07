@@ -15,7 +15,25 @@ export default Ember.ArrayController.extend({
         password: password
       });
       this.transitionToRoute('password', newPasswordModel);
+    },
+
+    selectedServiceGainsFocus: function() {
+      this.set('selectedServiceHasFocus', true);
     }
+
+
   },
-  selectedService: null
+
+  selectedService: null,
+  selectedServiceHasFocus: false,
+
+  filteredServices: function() {
+    var selectedService = this.get('selectedService')
+    if (selectedService) {
+      return this.filter((serviceModel) => serviceModel.get('serviceName').indexOf(selectedService) !== -1)
+    } else {
+      return this.get('model')
+    }
+
+  }.property('selectedService')
 });

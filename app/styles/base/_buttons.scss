@@ -44,4 +44,11 @@
     @include opacity(.65);
     @include box-shadow(none);
   }
+
+  &.btn-link {
+    border: none;
+    background: none;
+    text-align: inherit;
+    box-shadow: none;
+  }
 }
