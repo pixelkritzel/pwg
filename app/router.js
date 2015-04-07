@@ -8,4 +8,5 @@ var Router = Ember.Router.extend({
 export default Router.map(function() {
   this.route('pwg', { path: '/' });
   this.route('services');
+  this.route('password', { path: '/password/:password_id' });
 });
