@@ -1,0 +1,17 @@
+.pwg_select-service, .pwg_input-service, .pwg_input-phrase, .pwg_generate-button-container, .pwg_password {
+  margin-top: $line-height-computed * 2;
+  margin-bottom: $line-height-computed * 2;
+}
+
+.pwg_link-to-service-list {
+  text-align: right;
+}
+
+.pwg_generate-button-container {
+  text-align: center;
+}
+
+.pwg_password {
+  text-align: center;
+  font-size: $font-size-base + 6;
+}

@@ -1,6 +1,8 @@
 {{outlet}}
 
+<div class="pwg_link-to-service-list">
 {{#link-to 'services'}}Service Liste bearbeiten{{/link-to}}
+</div>
 
 {{view "select"
        content=this
@@ -8,12 +10,18 @@
        prompt="Please select a name"
        optionLabelPath='content.serviceName'
        optionValuePath='content.serviceName'
+       class="pwg_select-service form-control"
 }}
 
-{{ input value=selectedService}}
+{{ input value=selectedService class="pwg_input-service form-control" placeholder="Service Name"}}
 
-{{ input value=salt action="generatePassword" on="enter"}}
+{{ input value=salt action="generatePassword" on="enter" class="pw_input-phrase form-control" placeholder="Secret Phrase"}}
 
-<h1>
+<div class="pwg_generate-button-container">
+  <button type="button" {{action generatePassword }} class="btn">Generate!</button>
+</div>
+
+
+<div class="pwg_password">
   {{ password }}
-</h1>
+</div>

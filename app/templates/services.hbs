@@ -1,14 +1,25 @@
 {{outlet}}
 
+<div class="services_back-link">
+  {{#link-to 'pwg'}}Back{{/link-to}}
+</div>
+
 <h1>Services</h1>
 
-{{#link-to 'pwg'}}Zurück{{/link-to}}
+{{input value=newServiceName
+        placeholder="New Service Name"
+        action="addNewService"
+        on="enter"
+        class="form-control"
+        type="url"}}
 
-{{input value=newServiceName action="addNewService" on="enter"}}
-<ul>
+<button type="button" class="btn" {{action addNewService}}>Add new service</button>
+
+<ul class="services_list">
   {{#each itemController="service"}}
     <li>
-      {{serviceName}} <button type="button" {{action deleteService}}>&times;</button>
+      {{serviceName}}
+      <button type="button" title="Delete Service" {{action deleteService}} class="services_delete-service btn">&times;</button>
     </li>
   {{/each}}
 </ul>
