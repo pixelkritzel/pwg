@@ -29,18 +29,23 @@ export default Ember.ArrayController.extend({
       });
       newService.save();
       this.set('showServiceList', false);
+    },
+
+    selectedServiceKeydown: function(x, event) {
+      var keycode = event.which;
+      if (keycode === 13) {
+        this.set('showServiceList', false);
+      }
     }
-
-
   },
 
   selectedService: null,
   showServiceList: false,
 
   filteredServices: function() {
-    var selectedService = this.get('selectedService')
+    var selectedService = this.get('selectedService');
     if (selectedService) {
-      return this.filter((serviceModel) => serviceModel.get('serviceName').indexOf(selectedService) !== -1)
+      return this.filter((serviceModel) => serviceModel.get('serviceName').indexOf(selectedService) !== -1);
     } else {
       return this.get('model');
     }
