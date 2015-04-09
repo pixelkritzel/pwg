@@ -7,12 +7,15 @@
 <div class="pwg_selected-service-container">
   {{ input value=selectedService focus-in="selectedServiceGainsFocus" class="pwg_input-service form-control" placeholder="Service Name" }}
 
-  {{#if selectedServiceHasFocus}}
+  {{#if showServiceList}}
     <div style="position:relative">
       <ul class="pwg_filtered-services">
         {{#each service in filteredServices}}
           <li><button class="btn btn-link" type="button" role="button" {{action 'setSelectedService' service.serviceName}}>{{ service.serviceName }}</button></li>
         {{/each}}
+        {{#if isSaveAble}}
+          <li><button class="btn btn-link" type="button" role="button" {{action 'saveService' service.serviceName}}>Save Service</button></li>
+        {{/if}}
       </ul>
     </div>
   {{/if}}
