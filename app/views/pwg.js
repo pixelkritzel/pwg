@@ -8,7 +8,7 @@ export default Ember.View.extend({
 
     $(window).on('click.pwgFocusControlForSelectedService', function(event) {
       if ( !$selectedServiceContainer.is(event.target) && $selectedServiceContainer.has(event.target).length === 0 ) {
-        controller.set('selectedServiceHasFocus', false);
+        controller.set('showServiceList', false);
       }
     });
   },
