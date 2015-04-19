@@ -7,6 +7,11 @@ export default Ember.ArrayController.extend({
       this.set('showServiceList', false);
     },
 
+    removeService: function(service) {
+      service.deleteRecord();
+      service.save();
+    },
+
     generatePassword: function() {
       var selectedServiceName = this.get('selectedService');
       var salt = this.get('salt');

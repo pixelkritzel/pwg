@@ -18,11 +18,7 @@ ul.pwg_filtered-services {
   border: 1px solid #ccc;
   list-style: none;
 
-  li button {
-    display: block;
-    width: 100%;
-    padding: $line-height-computed/2;
-
+  li {
     &:hover, &:active, &.active {
       background-color: #eee;
     }
@@ -38,3 +34,11 @@ ul.pwg_filtered-services {
   font-size: $font-size-base + 6;
 }
 
+.pwg_filtered-service--name {
+  width: 87%;
+  padding: $line-height-computed/2;
+}
+
+.pwg_filtered-service--remove {
+  width: 10%;
+}

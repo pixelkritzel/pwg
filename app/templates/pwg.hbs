@@ -11,7 +11,15 @@
     <div style="position:relative">
       <ul class="pwg_filtered-services">
         {{#each service in filteredServices}}
-          <li><button class="btn btn-link" type="button" role="button" {{action 'setSelectedService' service.serviceName}}>{{ service.serviceName }}</button></li>
+          <li>
+            <button class="btn btn-link pwg_filtered-service--name" type="button" role="button" {{action 'setSelectedService' service.serviceName}}>
+              {{ service.serviceName }}
+            </button>
+            <button class="btn pwg_filtered-service--remove" type="button" role="button"
+                    {{action 'removeService' service}}>
+              &times;
+            </button>
+          </li>
         {{/each}}
         {{#if isSaveAble}}
           <li><button class="btn btn-link" type="button" role="button" {{action 'saveService' service.serviceName}}>Save Service</button></li>
