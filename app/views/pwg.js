@@ -15,5 +15,11 @@ export default Ember.View.extend({
 
   willDestroyElement: function() {
     $(window).off('click.pwgFocusControlForSelectedService');
-  }
+  },
+
+  focusSalt: function() {
+    if(this.get('controller.focusSaltField')) {
+      this.$('.js-salt').focus();
+    }
+  }.observes('controller.focusSaltField')
 });

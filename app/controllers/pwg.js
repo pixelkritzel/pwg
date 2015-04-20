@@ -36,10 +36,11 @@ export default Ember.ArrayController.extend({
       this.set('showServiceList', false);
     },
 
-    selectedServiceKeydown: function(x, event) {
+    selectedServiceKeyUp: function(x, event) {
       var keycode = event.which;
       if (keycode === 13) {
         this.set('showServiceList', false);
+        this.set('focusSaltField', true);
       }
     }
   },

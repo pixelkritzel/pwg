@@ -1,7 +1,7 @@
 {{outlet}}
 
 <div class="pwg_selected-service-container">
-  {{ input value=selectedService focus-in="selectedServiceGainsFocus" key-down="selectedServiceKeydown" class="pwg_input-service form-control" placeholder="Service Name" }}
+  {{ input value=selectedService focus-in="selectedServiceGainsFocus" key-up="selectedServiceKeyUp" class="pwg_input-service form-control" placeholder="Service Name" }}
 
   {{#if showServiceList}}
     <div style="position:relative">
@@ -25,7 +25,7 @@
   {{/if}}
 </div>
 
-{{ input value=salt action="generatePassword" on="enter" class="pw_input-phrase form-control" placeholder="Secret Phrase"}}
+{{ input value=salt action="generatePassword" on="enter" class="pw_input-phrase js-salt form-control" placeholder="Secret Phrase"}}
 
 <div class="pwg_generate-button-container">
   <button type="button" {{action 'generatePassword' }} class="btn">Generate!</button>
