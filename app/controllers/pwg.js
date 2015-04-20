@@ -5,6 +5,7 @@ export default Ember.ArrayController.extend({
     setSelectedService: function(selectedService) {
       this.set('selectedService', selectedService);
       this.set('showServiceList', false);
+      this.set('errorService', false);
     },
 
     removeService: function(service) {
