@@ -1,6 +1,16 @@
-.pwg_select-service, .pwg_input-service, .pwg_input-phrase, .pwg_generate-button-container, .pwg_password {
+.pwg_selected-service-container {
   margin-top: $line-height-computed * 2;
-  margin-bottom: $line-height-computed * 2;
+}
+
+.pwg_select-service, .pwg_input-service, .pwg_input-phrase, .pwg_generate-button-container, .pwg_password {
+  margin-bottom: $line-height-computed/2;
+}
+
+.pwg_errormessage {
+  height: $line-height-computed;
+  margin-bottom: $line-height-computed/2;
+  padding-left: $padding-base-horizontal;
+  color: $brand-danger;
 }
 
 .pwg_link-to-service-list {
@@ -10,7 +20,7 @@
 ul.pwg_filtered-services {
   position: absolute;
   left: 0;
-  top: -$line-height-computed * 2;
+  top: -$line-height-computed/2;
   width: 100%;
   margin: 0;
   padding: 0;

@@ -14,9 +14,18 @@ export default Ember.ArrayController.extend({
 
     generatePassword: function() {
       var selectedServiceName = this.get('selectedService');
-      var salt = this.get('salt');
+      if (!selectedServiceName) {
+        this.set('errorService', true);
+      }
+      var salt = this.get('salt') || "";
+      if (salt.length < 6) {
+        this.set('errorSalt', true);
+      }
+      if(this.get('errorService') || this.get('errorSalt')) {
+        return false;
+      }
       var combinedPassword = selectedServiceName + salt;
-      var password = btoa(CryptoJS.SHA1(combinedPassword)).substr(0,32);
+      var password = btoa(CryptoJS.SHA1(combinedPassword)).substr(0, 32);
       var newPasswordModel = this.store.createRecord('password', {
         password: password
       });
@@ -37,16 +46,32 @@ export default Ember.ArrayController.extend({
     },
 
     selectedServiceKeyUp: function(x, event) {
+      if ((this.get('selectedService') || "").trim().length > 0) {
+        this.set('errorService', false);
+      }
       var keycode = event.which;
       if (keycode === 13) {
         this.set('showServiceList', false);
         this.set('focusSaltField', true);
+      }
+      if (keycode === 27) {
+        this.set('showServiceList', false);
+      }
+    },
+
+    saltKeyUp: function() {
+      if ((this.get('salt') || "").trim().length > 5) {
+        this.set('errorSalt', false);
       }
     }
   },
 
   selectedService: null,
   showServiceList: false,
+  errorService: false,
+  errorSalt: false,
+  errorMessageService: "You must provide a service name",
+  errorMessageSalt: "Your salt must be at least 6 characters long",
 
   filteredServices: function() {
     var selectedService = this.get('selectedService');
@@ -58,7 +83,6 @@ export default Ember.ArrayController.extend({
   }.property('selectedService'),
 
   isSaveAble: function() {
-
     var selectedService = this.get('selectedService') || "";
     selectedService = selectedService.trim();
 
