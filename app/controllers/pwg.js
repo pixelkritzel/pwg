@@ -49,6 +49,7 @@ export default Ember.ArrayController.extend({
     selectedServiceKeyUp: function(x, event) {
       if ((this.get('selectedService') || "").trim().length > 0) {
         this.set('errorService', false);
+        this.set('showServiceList', true);
       }
       var keycode = event.which;
       if (keycode === 13) {

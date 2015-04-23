@@ -75097,6 +75097,21 @@ window.CryptoJS = (function (Math, undefined) {
    *     var hmac = CryptoJS.HmacSHA1(message, key);
    */
   C.HmacSHA1 = Hasher._createHmacHelper(SHA1);
+;console.log('Step');
+window.PWGCopyAble = true;
+
+$('body').on('click', '.pwg_password-copy-button', function(){
+  var $passwortElement = $('.pwg_password');
+  var range = document.createRange();
+  range.selectNode($passwortElement[0]);
+  window.getSelection().addRange(range);
+
+  try {
+    document.execCommand('copy');
+  } catch(err) {
+  }
+  window.getSelection().removeAllRanges();
+});
 ;
 ;/* jshint ignore:start */
 

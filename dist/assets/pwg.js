@@ -94,6 +94,7 @@ define('pwg/controllers/pwg', ['exports', 'ember'], function (exports, Ember) {
       selectedServiceKeyUp: function selectedServiceKeyUp(x, event) {
         if ((this.get('selectedService') || '').trim().length > 0) {
           this.set('errorService', false);
+          this.set('showServiceList', true);
         }
         var keycode = event.which;
         if (keycode === 13) {
@@ -1460,7 +1461,7 @@ catch(err) {
 if (runningTests) {
   require("pwg/tests/test-helper");
 } else {
-  require("pwg/app")["default"].create({"LOG_ACTIVE_GENERATION":true,"LOG_VIEW_LOOKUPS":true,"name":"pwg","version":"0.0.0.7a27913d"});
+  require("pwg/app")["default"].create({"LOG_ACTIVE_GENERATION":true,"LOG_VIEW_LOOKUPS":true,"name":"pwg","version":"0.0.0.a01b0e41"});
 }
 
 /* jshint ignore:end */

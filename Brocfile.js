@@ -6,6 +6,7 @@ var app = new EmberApp();
 
 app.import("bower_components/ember-localstorage-adapter/localstorage_adapter.js");
 app.import("vendor/CryptoJS/crypto.js");
+app.import("vendor/copy_button/copy_button.js");
 
 // Use `app.import` to add additional libraries to the generated
 // output files.
