@@ -31,7 +31,7 @@
   {{/if}}
 </div>
 
-{{ input value=salt action="generatePassword" on="enter" key-up="saltKeyUp" class="pwg_input-phrase js-salt form-control" placeholder="Secret Phrase"}}
+{{ input type="password" value=salt action="generatePassword" on="enter" key-up="saltKeyUp" class="pwg_input-phrase js-salt form-control" placeholder="Secret Phrase"}}
 
 <div class="pwg_errormessage">
   {{#if errorSalt}}
