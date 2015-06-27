@@ -16,6 +16,7 @@
     "strict": 0
   }, "globals": {
         "$": false,
+        "ok": false
     },
   "ecmaFeatures": { "modules": true }
 }
